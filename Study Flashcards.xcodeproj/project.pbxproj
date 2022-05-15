@@ -13,6 +13,9 @@
 		11F8BE8E2828CB700091052A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F8BE8C2828CB700091052A /* Main.storyboard */; };
 		11F8BE902828CB760091052A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F8BE8F2828CB760091052A /* Assets.xcassets */; };
 		11F8BE932828CB760091052A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F8BE912828CB760091052A /* LaunchScreen.storyboard */; };
+		16298AF8283117100079E24E /* Card.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16298AF6283117100079E24E /* Card.xcdatamodeld */; };
+		16298AFA283120FA0079E24E /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AF9283120FA0079E24E /* CardModel.swift */; };
+		16298AFC283122AE0079E24E /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AFB283122AE0079E24E /* CardData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		11F8BE8F2828CB760091052A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11F8BE922828CB760091052A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11F8BE942828CB760091052A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16298AF7283117100079E24E /* Card.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Card.xcdatamodel; sourceTree = "<group>"; };
+		16298AF9283120FA0079E24E /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		16298AFB283122AE0079E24E /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,13 @@
 				11F8BE862828CB700091052A /* AppDelegate.swift */,
 				11F8BE882828CB700091052A /* SceneDelegate.swift */,
 				11F8BE8A2828CB700091052A /* ViewController.swift */,
+				16298AF9283120FA0079E24E /* CardModel.swift */,
+				16298AFB283122AE0079E24E /* CardData.swift */,
 				11F8BE8C2828CB700091052A /* Main.storyboard */,
 				11F8BE8F2828CB760091052A /* Assets.xcassets */,
 				11F8BE912828CB760091052A /* LaunchScreen.storyboard */,
 				11F8BE942828CB760091052A /* Info.plist */,
+				16298AF6283117100079E24E /* Card.xcdatamodeld */,
 			);
 			path = "Study Flashcards";
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 				11F8BE8B2828CB700091052A /* ViewController.swift in Sources */,
 				11F8BE872828CB700091052A /* AppDelegate.swift in Sources */,
 				11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */,
+				16298AFC283122AE0079E24E /* CardData.swift in Sources */,
+				16298AF8283117100079E24E /* Card.xcdatamodeld in Sources */,
+				16298AFA283120FA0079E24E /* CardModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +368,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		16298AF6283117100079E24E /* Card.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				16298AF7283117100079E24E /* Card.xcdatamodel */,
+			);
+			currentVersion = 16298AF7283117100079E24E /* Card.xcdatamodel */;
+			path = Card.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 11F8BE7B2828CB700091052A /* Project object */;
 }
