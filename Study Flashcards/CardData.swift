@@ -20,7 +20,7 @@ let CardData: [Card] = [
     //sample maths cards
     Card(subject: "Maths", question:"What is", answer:""),
     
-    Card(subject: "Maths", question:"What is, answer:""),
+    Card(subject: "Maths", question:"What is", answer:""),
     
     Card(subject: "Maths", question:"What is", answer:""),
     

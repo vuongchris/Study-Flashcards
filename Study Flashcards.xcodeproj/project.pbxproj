@@ -17,6 +17,7 @@
 		16298AFA283120FA0079E24E /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AF9283120FA0079E24E /* CardModel.swift */; };
 		16298AFC283122AE0079E24E /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AFB283122AE0079E24E /* CardData.swift */; };
 		16298B0028312A840079E24E /* FlipAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AFF28312A840079E24E /* FlipAnimation.swift */; };
+		B8267ED12832183700CD774A /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8267ED02832183700CD774A /* AddCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		16298AF9283120FA0079E24E /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		16298AFB283122AE0079E24E /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		16298AFF28312A840079E24E /* FlipAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipAnimation.swift; sourceTree = "<group>"; };
+		B8267ED02832183700CD774A /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				16298AF9283120FA0079E24E /* CardModel.swift */,
 				16298AFB283122AE0079E24E /* CardData.swift */,
 				16298AFF28312A840079E24E /* FlipAnimation.swift */,
+				B8267ED02832183700CD774A /* AddCardView.swift */,
 				11F8BE8C2828CB700091052A /* Main.storyboard */,
 				11F8BE8F2828CB760091052A /* Assets.xcassets */,
 				11F8BE912828CB760091052A /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				16298B0028312A840079E24E /* FlipAnimation.swift in Sources */,
 				11F8BE8B2828CB700091052A /* ViewController.swift in Sources */,
+				B8267ED12832183700CD774A /* AddCardView.swift in Sources */,
 				11F8BE872828CB700091052A /* AppDelegate.swift in Sources */,
 				11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */,
 				16298AFC283122AE0079E24E /* CardData.swift in Sources */,

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FbS-hn-NmH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FbS-hn-NmH">
     <device id="ipad10_2" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +24,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUQ-e7-49l">
+                                <rect key="frame" x="328" y="443" width="128" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="wow i made this"/>
+                                <connections>
+                                    <segue destination="2JG-bl-qBC" kind="show" id="qWm-hp-l9q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -33,6 +42,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777.03703703703695" y="97.777777777777771"/>
+        </scene>
+        <!--Add card-->
+        <scene sceneID="CMh-3c-nSd">
+            <objects>
+                <viewController storyboardIdentifier="AddCardView" id="2JG-bl-qBC" customClass="AddCardView" customModule="Study_Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0td-Yr-pvu">
+                        <rect key="frame" x="0.0" y="0.0" width="810" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iph-2o-3s4">
+                                <rect key="frame" x="20" y="142" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Subject name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vpi-DR-9ax">
+                                <rect key="frame" x="20" y="173" width="770" height="24"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="FVr-51-Mxh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgr-xH-l39">
+                                <rect key="frame" x="20" y="207" width="73.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert Question Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D4p-Xf-Bjg">
+                                <rect key="frame" x="20" y="238" width="770" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="OTC-RC-XHv"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-FK-ILW">
+                                <rect key="frame" x="20" y="312" width="61.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert Answer Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eGB-V5-36d">
+                                <rect key="frame" x="20" y="343" width="770" height="64"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="iWg-c0-Gua"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7s-1q-3sC">
+                                <rect key="frame" x="344" y="427" width="122" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Card">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onAddButtonClick:" destination="2JG-bl-qBC" eventType="touchUpInside" id="OZx-ks-6cl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DtH-1L-2qz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eGB-V5-36d" firstAttribute="top" secondItem="ufV-FK-ILW" secondAttribute="bottom" constant="10" id="1aZ-CU-Dvv"/>
+                            <constraint firstItem="ufV-FK-ILW" firstAttribute="leading" secondItem="DtH-1L-2qz" secondAttribute="leading" constant="20" id="3Ch-x7-rlj"/>
+                            <constraint firstItem="vpi-DR-9ax" firstAttribute="leading" secondItem="DtH-1L-2qz" secondAttribute="leading" constant="20" id="Bt8-Lx-zZi"/>
+                            <constraint firstItem="DtH-1L-2qz" firstAttribute="trailing" secondItem="D4p-Xf-Bjg" secondAttribute="trailing" constant="20" id="Dkv-H5-3i9"/>
+                            <constraint firstItem="Z7s-1q-3sC" firstAttribute="top" secondItem="eGB-V5-36d" secondAttribute="bottom" constant="20" id="GeT-kk-xZv"/>
+                            <constraint firstItem="iph-2o-3s4" firstAttribute="leading" secondItem="DtH-1L-2qz" secondAttribute="leading" constant="20" id="NHe-VL-Nrf"/>
+                            <constraint firstItem="DtH-1L-2qz" firstAttribute="trailing" secondItem="eGB-V5-36d" secondAttribute="trailing" constant="20" id="PEg-w3-dva"/>
+                            <constraint firstItem="iph-2o-3s4" firstAttribute="top" secondItem="DtH-1L-2qz" secondAttribute="top" constant="20" id="Uxi-eb-NXc"/>
+                            <constraint firstItem="D4p-Xf-Bjg" firstAttribute="top" secondItem="cgr-xH-l39" secondAttribute="bottom" constant="10" id="VZK-gE-FkO"/>
+                            <constraint firstItem="ufV-FK-ILW" firstAttribute="top" secondItem="D4p-Xf-Bjg" secondAttribute="bottom" constant="10" id="dTt-ul-lnp"/>
+                            <constraint firstItem="eGB-V5-36d" firstAttribute="leading" secondItem="DtH-1L-2qz" secondAttribute="leading" constant="20" id="eEf-2G-qFZ"/>
+                            <constraint firstItem="vpi-DR-9ax" firstAttribute="top" secondItem="iph-2o-3s4" secondAttribute="bottom" constant="10" id="hw9-i7-9U6"/>
+                            <constraint firstItem="DtH-1L-2qz" firstAttribute="trailing" secondItem="vpi-DR-9ax" secondAttribute="trailing" constant="20" id="sno-if-bYm"/>
+                            <constraint firstItem="cgr-xH-l39" firstAttribute="top" secondItem="vpi-DR-9ax" secondAttribute="bottom" constant="10" id="v0y-D8-aLL"/>
+                            <constraint firstItem="D4p-Xf-Bjg" firstAttribute="leading" secondItem="DtH-1L-2qz" secondAttribute="leading" constant="20" id="vCE-zc-ZgD"/>
+                            <constraint firstItem="cgr-xH-l39" firstAttribute="leading" secondItem="DtH-1L-2qz" secondAttribute="leading" constant="20" id="xqP-cU-9Sy"/>
+                            <constraint firstItem="Z7s-1q-3sC" firstAttribute="centerX" secondItem="0td-Yr-pvu" secondAttribute="centerX" id="yoZ-XE-vaf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add card" id="SSz-h9-3LA"/>
+                    <connections>
+                        <outlet property="answerField" destination="eGB-V5-36d" id="Pv7-ez-VFW"/>
+                        <outlet property="questionField" destination="D4p-Xf-Bjg" id="m2M-NP-Uea"/>
+                        <outlet property="subjectField" destination="vpi-DR-9ax" id="c5u-bt-yec"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYT-Fl-m7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776.29629629629619" y="838.88888888888891"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Vq-b2-B1w">
@@ -56,6 +164,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
