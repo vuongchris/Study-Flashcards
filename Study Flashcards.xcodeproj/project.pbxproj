@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11609921283266BD00EE6666 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11609920283266BD00EE6666 /* MainViewController.swift */; };
 		116099232832794300EE6666 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116099222832794300EE6666 /* CardsViewController.swift */; };
+		11D3A1BC2833CC26008C9806 /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */; };
 		11F8BE872828CB700091052A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BE862828CB700091052A /* AppDelegate.swift */; };
 		11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BE882828CB700091052A /* SceneDelegate.swift */; };
 		11F8BE8B2828CB700091052A /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BE8A2828CB700091052A /* SubjectViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		11609920283266BD00EE6666 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		116099222832794300EE6666 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
 		11F8BE832828CB700091052A /* Study Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Flashcards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F8BE862828CB700091052A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11F8BE882828CB700091052A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				11F8BE8A2828CB700091052A /* SubjectViewController.swift */,
 				11609920283266BD00EE6666 /* MainViewController.swift */,
 				116099222832794300EE6666 /* CardsViewController.swift */,
+				11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				16298B0028312A840079E24E /* FlipAnimation.swift in Sources */,
 				11609921283266BD00EE6666 /* MainViewController.swift in Sources */,
 				116099232832794300EE6666 /* CardsViewController.swift in Sources */,
+				11D3A1BC2833CC26008C9806 /* AddSubjectViewController.swift in Sources */,
 				11F8BE8B2828CB700091052A /* SubjectViewController.swift in Sources */,
 				11F8BE872828CB700091052A /* AppDelegate.swift in Sources */,
 				11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */,

@@ -16,8 +16,10 @@ class Results: UIViewController{
 
 class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var actionButton: UIButton!
     let searchController = UISearchController(searchResultsController: Results())
     let subjectList = ["Biology", "Chemistry", "English", "Maths", "Physics"]
     let textCellIdentifier = "textCell"
@@ -32,6 +34,8 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToAddSubjectView))
+        tableView.allowsSelectionDuringEditing = true
 
     }
     // updates search after every character
@@ -62,7 +66,6 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
@@ -70,14 +73,13 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         
-        if editing == true {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        } else {
-            navigationItem.leftBarButtonItem = nil
-        }
-        
         tableView.setEditing(editing, animated: true)
 
+    }
+    
+    @objc func goToAddSubjectView() {
+        let vc = storyboard?.instantiateViewController(identifier: "AddSubjectViewController") as! AddSubjectViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
