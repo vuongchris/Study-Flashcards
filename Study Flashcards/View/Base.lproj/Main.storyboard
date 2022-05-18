@@ -67,8 +67,6 @@
         <!--Add Subject View Controller-->
         <scene sceneID="HzL-E9-0rV">
             <objects>
-                <exit id="fy9-Sl-0oj" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JF9-GT-eLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AddSubjectViewController" id="whZ-EA-QMU" customClass="AddSubjectViewController" customModule="Study_Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mvd-nn-IZs">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
@@ -118,6 +116,8 @@
                         <outlet property="subjectTextField" destination="9hU-LZ-AkE" id="ZVM-qp-4bN"/>
                     </connections>
                 </viewController>
+                <exit id="fy9-Sl-0oj" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JF9-GT-eLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3268" y="314"/>
         </scene>
@@ -184,8 +184,11 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add Question"/>
+                                <connections>
+                                    <segue destination="vZ6-yk-13M" kind="show" identifier="goToAddQuestionView" id="yhz-8N-wYj"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HfW-pB-MX8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HfW-pB-MX8">
                                 <rect key="frame" x="0.0" y="44" width="428" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -221,6 +224,83 @@
             </objects>
             <point key="canvasLocation" x="4891" y="-397"/>
         </scene>
+        <!--Add Question View Controller-->
+        <scene sceneID="CkA-T0-Vqc">
+            <objects>
+                <viewController storyboardIdentifier="AddQuestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vZ6-yk-13M" customClass="AddQuestionViewController" customModule="Study_Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PHp-SU-ztC">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-aO-B0F">
+                                <rect key="frame" x="20" y="144" width="388" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bXy-zi-twt"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMm-r3-pFT">
+                                <rect key="frame" x="20" y="113" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-bP-N4k">
+                                <rect key="frame" x="20" y="264" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xaG-Pp-YBj">
+                                <rect key="frame" x="20" y="284" width="388" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="lEM-TE-JfK"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-Y1-0ZO">
+                                <rect key="frame" x="20" y="404" width="388" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D2C-OA-eEN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <segue destination="une-Ke-dLU" kind="unwind" unwindAction="submitQuestionAction:" id="hhi-ft-spE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KRl-8M-2zH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fvN-Y1-0ZO" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="6XT-yN-Vlk"/>
+                            <constraint firstItem="xaG-Pp-YBj" firstAttribute="top" secondItem="5Pq-aO-B0F" secondAttribute="bottom" constant="40" id="8lh-sD-EoN"/>
+                            <constraint firstItem="NMm-r3-pFT" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="Dkb-4H-WKi"/>
+                            <constraint firstItem="5Pq-aO-B0F" firstAttribute="top" secondItem="NMm-r3-pFT" secondAttribute="bottom" constant="10" id="LSF-7d-qI2"/>
+                            <constraint firstItem="5Pq-aO-B0F" firstAttribute="top" secondItem="KRl-8M-2zH" secondAttribute="top" constant="100" id="LxG-KU-7DW"/>
+                            <constraint firstItem="KRl-8M-2zH" firstAttribute="trailing" secondItem="fvN-Y1-0ZO" secondAttribute="trailing" constant="20" id="MaH-rn-tur"/>
+                            <constraint firstItem="L4S-bP-N4k" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="PmG-eg-5mJ"/>
+                            <constraint firstItem="KRl-8M-2zH" firstAttribute="trailing" secondItem="5Pq-aO-B0F" secondAttribute="trailing" constant="20" id="TqG-Ku-7hZ"/>
+                            <constraint firstItem="KRl-8M-2zH" firstAttribute="trailing" secondItem="xaG-Pp-YBj" secondAttribute="trailing" constant="20" id="cR1-ZH-PFV"/>
+                            <constraint firstItem="5Pq-aO-B0F" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="dHb-7Z-sAi"/>
+                            <constraint firstItem="fvN-Y1-0ZO" firstAttribute="top" secondItem="xaG-Pp-YBj" secondAttribute="bottom" constant="20" id="jeh-5j-pRV"/>
+                            <constraint firstItem="L4S-bP-N4k" firstAttribute="top" secondItem="5Pq-aO-B0F" secondAttribute="bottom" constant="20" id="leT-Ev-M7l"/>
+                            <constraint firstItem="xaG-Pp-YBj" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="onN-p5-so7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8JR-31-ngs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JsT-cH-eeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="une-Ke-dLU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4889.7196261682238" y="322.67818574514041"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wpt-Jq-u0A">
             <objects>
@@ -241,6 +321,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

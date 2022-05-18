@@ -20,7 +20,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     @IBOutlet weak var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: Results())
-    let subjectList = ["Biology", "Chemistry", "English", "Maths", "Physics"]
+    var subjectList = ["Biology", "Chemistry", "Physics"]
     let textCellIdentifier = "textCell"
     
     override func viewDidLoad() {
@@ -90,6 +90,9 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
 
     }
     
-    @IBAction func submitAction(_ sender: UIStoryboardSegue) {}
+    @IBAction func submitAction(_ sender: UIStoryboardSegue) {
+        super.setEditing(false, animated: true)
+        tableView.setEditing(false, animated: true)
+    }
 }
 

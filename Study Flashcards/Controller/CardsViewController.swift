@@ -58,9 +58,10 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc = storyboard?.instantiateViewController(identifier: "AddQuestionViewController") as! AddQuestionViewController
+        vc.editStatus = true
+        self.navigationController?.pushViewController(vc, animated: true)
         cardsTableView.deselectRow(at: indexPath, animated: true)
-        
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -70,4 +71,10 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
         cardsTableView.setEditing(editing, animated: true)
 
     }
+    
+    @IBAction func submitQuestionAction(_ sender: UIStoryboardSegue) {
+        super.setEditing(false, animated: true)
+        cardsTableView.setEditing(false, animated: true)
+    }
+    
 }
