@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113FD34C2834DF97004E10A0 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FD34B2834DF97004E10A0 /* AddQuestionViewController.swift */; };
+		113FD34E2834ED03004E10A0 /* EditSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FD34D2834ED03004E10A0 /* EditSubjectViewController.swift */; };
 		11609921283266BD00EE6666 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11609920283266BD00EE6666 /* MainViewController.swift */; };
 		116099232832794300EE6666 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116099222832794300EE6666 /* CardsViewController.swift */; };
 		11D3A1BC2833CC26008C9806 /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		113FD34B2834DF97004E10A0 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		113FD34D2834ED03004E10A0 /* EditSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectViewController.swift; sourceTree = "<group>"; };
 		11609920283266BD00EE6666 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		116099222832794300EE6666 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		115FA6B128348ABE00C10D8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11F8BE8C2828CB700091052A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		11A975362832111300ED153C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,8 @@
 				11609920283266BD00EE6666 /* MainViewController.swift */,
 				116099222832794300EE6666 /* CardsViewController.swift */,
 				11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */,
+				113FD34B2834DF97004E10A0 /* AddQuestionViewController.swift */,
+				113FD34D2834ED03004E10A0 /* EditSubjectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,12 +104,12 @@
 		11F8BE852828CB700091052A /* Study Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				115FA6B128348ABE00C10D8F /* View */,
 				11A975362832111300ED153C /* Controller */,
 				11ECAF082831FF810028550C /* Model */,
 				11F8BE862828CB700091052A /* AppDelegate.swift */,
 				11F8BE882828CB700091052A /* SceneDelegate.swift */,
 				16298AFF28312A840079E24E /* FlipAnimation.swift */,
-				11F8BE8C2828CB700091052A /* Main.storyboard */,
 				11F8BE8F2828CB760091052A /* Assets.xcassets */,
 				11F8BE912828CB760091052A /* LaunchScreen.storyboard */,
 				11F8BE942828CB760091052A /* Info.plist */,
@@ -180,7 +194,9 @@
 				116099232832794300EE6666 /* CardsViewController.swift in Sources */,
 				11D3A1BC2833CC26008C9806 /* AddSubjectViewController.swift in Sources */,
 				11F8BE8B2828CB700091052A /* SubjectViewController.swift in Sources */,
+				113FD34C2834DF97004E10A0 /* AddQuestionViewController.swift in Sources */,
 				11F8BE872828CB700091052A /* AppDelegate.swift in Sources */,
+				113FD34E2834ED03004E10A0 /* EditSubjectViewController.swift in Sources */,
 				11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */,
 				16298AFC283122AE0079E24E /* CardData.swift in Sources */,
 				16298AF8283117100079E24E /* Card.xcdatamodeld in Sources */,

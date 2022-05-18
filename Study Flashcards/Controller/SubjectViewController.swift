@@ -19,7 +19,6 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var actionButton: UIButton!
     let searchController = UISearchController(searchResultsController: Results())
     let subjectList = ["Biology", "Chemistry", "English", "Maths", "Physics"]
     let textCellIdentifier = "textCell"
@@ -33,8 +32,8 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
+        navigationItem.setHidesBackButton(true, animated: true)
         navigationItem.rightBarButtonItem = editButtonItem
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToAddSubjectView))
         tableView.allowsSelectionDuringEditing = true
 
     }
@@ -66,7 +65,21 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        if tableView.isEditing  == true {
+            let vc = storyboard?.instantiateViewController(identifier: "AddSubjectViewController") as! AddSubjectViewController
+            
+            if tableView.isEditing == true {
+                vc.editStatus = true
+            } else {
+                vc.editStatus = false
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        tableView.deselectRow(at: indexPath, animated: false)
         
     }
     
@@ -77,10 +90,6 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
 
     }
     
-    @objc func goToAddSubjectView() {
-        let vc = storyboard?.instantiateViewController(identifier: "AddSubjectViewController") as! AddSubjectViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
+    @IBAction func submitAction(_ sender: UIStoryboardSegue) {}
 }
 

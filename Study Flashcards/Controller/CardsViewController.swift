@@ -11,6 +11,7 @@ import UIKit
 
 class CardsViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
+    
     @IBOutlet weak var cardsTableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: Results())
@@ -65,11 +66,6 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         
-        if editing == true {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        } else {
-            navigationItem.leftBarButtonItem = nil
-        }
         
         cardsTableView.setEditing(editing, animated: true)
 
