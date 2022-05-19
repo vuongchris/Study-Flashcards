@@ -139,6 +139,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Quiz"/>
+                                        <connections>
+                                            <segue destination="3c0-RG-b0C" kind="show" id="Nnm-9e-w7r"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-gc-7TM">
                                         <rect key="frame" x="0.0" y="150" width="328" height="50"/>
@@ -168,6 +171,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nv-8N-Wlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4043" y="-397"/>
+        </scene>
+        <!--Flash Card View Controller-->
+        <scene sceneID="kZ9-Ys-QAp">
+            <objects>
+                <hostingController storyboardIdentifier="FlashCardViewController" id="3c0-RG-b0C" customClass="FlashCardViewController" customModule="Study_Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ILs-rw-u1k"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hY-G7-Mrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4810" y="-769"/>
         </scene>
         <!--Cards View Controller-->
         <scene sceneID="A7T-qO-r0z">
@@ -222,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hto-qq-fUr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4891" y="-397"/>
+            <point key="canvasLocation" x="4811" y="-89"/>
         </scene>
         <!--Add Question View Controller-->
         <scene sceneID="CkA-T0-Vqc">
@@ -248,14 +261,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-bP-N4k">
-                                <rect key="frame" x="20" y="264" width="57" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-bP-N4k">
+                                <rect key="frame" x="20" y="264" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xaG-Pp-YBj">
-                                <rect key="frame" x="20" y="284" width="388" height="100"/>
+                                <rect key="frame" x="20" y="295" width="388" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="lEM-TE-JfK"/>
@@ -265,7 +278,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-Y1-0ZO">
-                                <rect key="frame" x="20" y="404" width="388" height="50"/>
+                                <rect key="frame" x="20" y="415" width="388" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="D2C-OA-eEN"/>
                                 </constraints>
@@ -279,9 +292,10 @@
                         <viewLayoutGuide key="safeArea" id="KRl-8M-2zH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xaG-Pp-YBj" firstAttribute="top" secondItem="L4S-bP-N4k" secondAttribute="bottom" constant="10" id="396-cg-r5h"/>
                             <constraint firstItem="fvN-Y1-0ZO" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="6XT-yN-Vlk"/>
-                            <constraint firstItem="xaG-Pp-YBj" firstAttribute="top" secondItem="5Pq-aO-B0F" secondAttribute="bottom" constant="40" id="8lh-sD-EoN"/>
                             <constraint firstItem="NMm-r3-pFT" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="Dkb-4H-WKi"/>
+                            <constraint firstItem="KRl-8M-2zH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L4S-bP-N4k" secondAttribute="trailing" symbolic="YES" id="JPB-ln-EvH"/>
                             <constraint firstItem="5Pq-aO-B0F" firstAttribute="top" secondItem="NMm-r3-pFT" secondAttribute="bottom" constant="10" id="LSF-7d-qI2"/>
                             <constraint firstItem="5Pq-aO-B0F" firstAttribute="top" secondItem="KRl-8M-2zH" secondAttribute="top" constant="100" id="LxG-KU-7DW"/>
                             <constraint firstItem="KRl-8M-2zH" firstAttribute="trailing" secondItem="fvN-Y1-0ZO" secondAttribute="trailing" constant="20" id="MaH-rn-tur"/>
@@ -292,14 +306,19 @@
                             <constraint firstItem="fvN-Y1-0ZO" firstAttribute="top" secondItem="xaG-Pp-YBj" secondAttribute="bottom" constant="20" id="jeh-5j-pRV"/>
                             <constraint firstItem="L4S-bP-N4k" firstAttribute="top" secondItem="5Pq-aO-B0F" secondAttribute="bottom" constant="20" id="leT-Ev-M7l"/>
                             <constraint firstItem="xaG-Pp-YBj" firstAttribute="leading" secondItem="KRl-8M-2zH" secondAttribute="leading" constant="20" id="onN-p5-so7"/>
+                            <constraint firstItem="KRl-8M-2zH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NMm-r3-pFT" secondAttribute="trailing" symbolic="YES" id="uLo-Kr-w2C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8JR-31-ngs"/>
+                    <connections>
+                        <outlet property="answerTextView" destination="xaG-Pp-YBj" id="MvZ-jd-yg7"/>
+                        <outlet property="questionTextView" destination="5Pq-aO-B0F" id="oPk-8A-JX8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsT-cH-eeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="une-Ke-dLU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4889.7196261682238" y="322.67818574514041"/>
+            <point key="canvasLocation" x="4810" y="649"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wpt-Jq-u0A">

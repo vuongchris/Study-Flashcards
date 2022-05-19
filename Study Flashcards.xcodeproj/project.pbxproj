@@ -11,6 +11,7 @@
 		113FD34E2834ED03004E10A0 /* EditSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FD34D2834ED03004E10A0 /* EditSubjectViewController.swift */; };
 		11609921283266BD00EE6666 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11609920283266BD00EE6666 /* MainViewController.swift */; };
 		116099232832794300EE6666 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116099222832794300EE6666 /* CardsViewController.swift */; };
+		1194D60F28365B1200B6E177 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194D60E28365B1200B6E177 /* FlashCardViewController.swift */; };
 		11D3A1BC2833CC26008C9806 /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */; };
 		11F8BE872828CB700091052A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BE862828CB700091052A /* AppDelegate.swift */; };
 		11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BE882828CB700091052A /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 		113FD34D2834ED03004E10A0 /* EditSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSubjectViewController.swift; sourceTree = "<group>"; };
 		11609920283266BD00EE6666 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		116099222832794300EE6666 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		1194D60E28365B1200B6E177 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
 		11F8BE832828CB700091052A /* Study Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Flashcards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F8BE862828CB700091052A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */,
 				113FD34B2834DF97004E10A0 /* AddQuestionViewController.swift */,
 				113FD34D2834ED03004E10A0 /* EditSubjectViewController.swift */,
+				1194D60E28365B1200B6E177 /* FlashCardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				113FD34C2834DF97004E10A0 /* AddQuestionViewController.swift in Sources */,
 				11F8BE872828CB700091052A /* AppDelegate.swift in Sources */,
 				113FD34E2834ED03004E10A0 /* EditSubjectViewController.swift in Sources */,
+				1194D60F28365B1200B6E177 /* FlashCardViewController.swift in Sources */,
 				11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */,
 				16298AFC283122AE0079E24E /* CardData.swift in Sources */,
 				16298AF8283117100079E24E /* Card.xcdatamodeld in Sources */,
@@ -356,6 +360,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,6 +391,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

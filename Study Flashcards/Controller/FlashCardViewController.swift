@@ -7,8 +7,34 @@
 //  https://www.youtube.com/watch?v=v2Xf1gwcQSA
 //
 
+import Foundation
+import UIKit
 import SwiftUI
-/*
+
+struct ContentView: View {
+    var body: some View {
+        Flashcard(front: {
+            Text("Front")
+        }, back: {
+            Text("Back")
+        })
+        
+        Button("Previous") {}
+            .buttonStyle(.borderedProminent)
+            .font(.title2)
+            .padding()
+        
+        Button("Next") {}
+            .buttonStyle(.borderedProminent)
+            .font(.title2)
+            .padding()
+
+        
+
+        
+}
+}
+
 struct Flashcard<Front, Back>: View where Front: View, Back: View {
     var front: () -> Front
     var back: () -> Back
@@ -59,4 +85,15 @@ struct Flashcard<Front, Back>: View where Front: View, Back: View {
                }
            }
        }
-*/
+
+class FlashCardViewController: UIHostingController<ContentView> {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder,rootView: ContentView());
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+}
