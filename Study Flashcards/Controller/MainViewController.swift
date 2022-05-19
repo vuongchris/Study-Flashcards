@@ -11,10 +11,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var subjectTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = subjectTitle
     }
         
 }

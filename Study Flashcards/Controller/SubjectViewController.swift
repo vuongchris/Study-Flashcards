@@ -65,6 +65,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
         if tableView.isEditing  == true {
             let vc = storyboard?.instantiateViewController(identifier: "AddSubjectViewController") as! AddSubjectViewController
             
@@ -77,6 +78,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
+            vc.subjectTitle = subjectList[row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: false)
