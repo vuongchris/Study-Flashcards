@@ -109,6 +109,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     
     @IBAction func submitAction(_ sender: UIStoryboardSegue) {
         super.setEditing(false, animated: true)
+        tableView.reloadData()
         tableView.setEditing(false, animated: true)
     }
 }

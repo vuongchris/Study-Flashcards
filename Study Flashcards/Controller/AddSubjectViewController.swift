@@ -38,12 +38,10 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
                 editSubjectName(subjectBeingEdited, subjectTextField.text!)
             }
         }
-        goToSubjectView()
     }
     
     @objc func goToSubjectView() {
         let vc = storyboard?.instantiateViewController(identifier: "SubjectViewController") as! SubjectViewController
-        vc.subjectList = readSubject()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -52,6 +50,14 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /// Game View Segue
+        if segue.identifier == "subjectsViewUnwind" {
+            let destinationView = segue.destination as! SubjectViewController
+            destinationView.subjectList = readSubject()
+        }
     }
     
 }

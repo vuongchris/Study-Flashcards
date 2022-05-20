@@ -94,6 +94,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
                                     <action selector="onSave:" destination="whZ-EA-QMU" eventType="touchUpInside" id="pWY-a8-ERA"/>
+                                    <segue destination="wBR-Nm-gSU" kind="unwind" identifier="subjectsViewUnwind" unwindAction="submitAction:" id="zhT-I7-Vol"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,6 +117,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JF9-GT-eLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wBR-Nm-gSU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3268" y="314"/>
         </scene>
@@ -283,6 +285,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
+                                    <action selector="onSave" destination="vZ6-yk-13M" eventType="touchUpInside" id="8ob-Mt-gyF"/>
                                     <segue destination="68D-C8-fdV" kind="unwind" identifier="cardsViewUnwind" unwindAction="submitQuestionAction:" id="7p5-hV-Q8j"/>
                                 </connections>
                             </button>

@@ -35,7 +35,7 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func onSave() {
+    @IBAction func onSave() {
         if questionTextView != nil && answerTextView != nil {
             if !editStatus {
                 subject!.cards.append(Card(question: questionTextView.text, answer: answerTextView.text))
@@ -49,13 +49,10 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /// Game View Segue
         if segue.identifier == "cardsViewUnwind" {
             let destinationView = segue.destination as! CardsViewController
-            onSave()
             destinationView.subject = subject
             destinationView.cardList = subject!.cards
-            
         }
     }
 
