@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EmY-xu-3Ic">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -94,7 +93,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <segue destination="fy9-Sl-0oj" kind="unwind" unwindAction="submitAction:" id="QXk-pX-rcg"/>
+                                    <action selector="onSave:" destination="whZ-EA-QMU" eventType="touchUpInside" id="pWY-a8-ERA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,7 +115,6 @@
                         <outlet property="subjectTextField" destination="9hU-LZ-AkE" id="ZVM-qp-4bN"/>
                     </connections>
                 </viewController>
-                <exit id="fy9-Sl-0oj" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JF9-GT-eLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3268" y="314"/>

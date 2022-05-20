@@ -18,9 +18,9 @@ let SUBJECTS_KEY = "subjectKey"
 /// Writes into highscore user defaults
 func writeSubject(_ subject: Subject) {
     let defaults = UserDefaults.standard
-    var hsArray = readSubject()
-    hsArray.append(subject)
-    defaults.set(try? PropertyListEncoder().encode(hsArray), forKey: SUBJECTS_KEY)
+    var subjArray = readSubject()
+    subjArray.append(subject)
+    defaults.set(try? PropertyListEncoder().encode(subjArray), forKey: SUBJECTS_KEY)
 }
 
 /// Reads from highscore user defaults

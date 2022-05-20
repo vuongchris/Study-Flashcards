@@ -67,6 +67,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         return cell
     }
     
+    /// On selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         if tableView.isEditing  == true {

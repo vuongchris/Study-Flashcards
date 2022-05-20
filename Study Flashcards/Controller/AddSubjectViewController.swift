@@ -21,8 +21,24 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
         self.subjectTextField.delegate = self
     }
     
+    @IBAction func onSave(_ sender: Any) {
+        if subjectTextField.text != nil {
+            if !editStatus {
+                writeSubject(Subject(
+                    subjectName: subjectTextField.text!,
+                    cards: []
+                ))
+            }
+            else {
+                // Edit subject
+            }
+        }
+        goToSubjectView()
+    }
+    
     @objc func goToSubjectView() {
         let vc = storyboard?.instantiateViewController(identifier: "SubjectViewController") as! SubjectViewController
+        vc.subjectList = readSubject()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
