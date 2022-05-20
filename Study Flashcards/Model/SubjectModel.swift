@@ -15,7 +15,7 @@ struct Subject: Identifiable, Codable {
 
 let SUBJECTS_KEY = "subjectKey"
 
-/// Writes into highscore user defaults
+/// Writes into subject user defaults
 func writeSubject(_ subject: Subject) {
     let defaults = UserDefaults.standard
     var subjArray = readSubject()
@@ -23,7 +23,7 @@ func writeSubject(_ subject: Subject) {
     defaults.set(try? PropertyListEncoder().encode(subjArray), forKey: SUBJECTS_KEY)
 }
 
-/// Reads from highscore user defaults
+/// Reads from subject user defaults
 func readSubject() -> [Subject] {
     let defaults = UserDefaults.standard
     
@@ -36,7 +36,20 @@ func readSubject() -> [Subject] {
     return [] as! [Subject]
 }
 
-/// Clears the leaderboard
+/// Remove subject from user defaults
+func removeSubject(_ subjectName: String) {
+    let defaults = UserDefaults.standard
+    var subjArray = readSubject()
+    for (index, subject) in subjArray.enumerated() {
+        if subject.subjectName == subjectName {
+            subjArray.remove(at: index)
+            break
+        }
+    }
+    defaults.set(try? PropertyListEncoder().encode(subjArray), forKey: SUBJECTS_KEY)
+}
+
+/// Clears subjects
 func clearSubject() {
     let defaults = UserDefaults.standard
     let arr: [Subject] = []

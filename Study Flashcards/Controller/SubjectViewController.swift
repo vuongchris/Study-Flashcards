@@ -89,6 +89,16 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("DELET")
+            let subjToBeDeleted: Int = indexPath.row
+            removeSubject(subjectList[subjToBeDeleted].subjectName)
+            subjectList.remove(at: subjToBeDeleted)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         
