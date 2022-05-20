@@ -15,6 +15,7 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var actionButton: UIButton!
     
     var editStatus = false
+    var subjectBeingEdited: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 // Edit subject
+                editSubjectName(subjectBeingEdited, subjectTextField.text!)
             }
         }
         goToSubjectView()

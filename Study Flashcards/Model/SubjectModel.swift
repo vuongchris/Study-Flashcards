@@ -49,6 +49,19 @@ func removeSubject(_ subjectName: String) {
     defaults.set(try? PropertyListEncoder().encode(subjArray), forKey: SUBJECTS_KEY)
 }
 
+/// Edit subject name
+func editSubjectName(_ oldSubjectName: String, _ newSubjectName: String) {
+    let defaults = UserDefaults.standard
+    var subjArray = readSubject()
+    for (index,subject) in subjArray.enumerated() {
+        if subject.subjectName == oldSubjectName {
+            subjArray[index].subjectName = newSubjectName
+            break
+        }
+    }
+    defaults.set(try? PropertyListEncoder().encode(subjArray), forKey: SUBJECTS_KEY)
+}
+
 /// Clears subjects
 func clearSubject() {
     let defaults = UserDefaults.standard

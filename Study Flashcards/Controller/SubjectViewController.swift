@@ -78,6 +78,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
             } else {
                 vc.editStatus = false
             }
+            vc.subjectBeingEdited = subjectList[row].subjectName
             
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
