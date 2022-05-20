@@ -11,11 +11,30 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var subjectTitle = ""
+    let FLASH_CARD_VIEW_SEGUE = "flashCardViewSegue"
+    let CARDS_VIEW_SEGUE = "cardsViewSegue"
+    
+    var subject: Subject? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = subjectTitle
+        var subjectName: String = ""
+        if subject != nil {
+            subjectName = subject!.subjectName
+        }
+        navigationItem.title = subjectName
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /// Game View Segue
+        if segue.identifier == FLASH_CARD_VIEW_SEGUE {
+            let destinationView = segue.destination as! FlashCardViewController
+            
+        }
+        else if segue.identifier == CARDS_VIEW_SEGUE {
+            let destinationView = segue.destination as! CardsViewController
+            destinationView.subject = subject
+        }
     }
         
 }

@@ -138,7 +138,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Quiz"/>
                                         <connections>
-                                            <segue destination="3c0-RG-b0C" kind="show" id="Nnm-9e-w7r"/>
+                                            <segue destination="3c0-RG-b0C" kind="show" identifier="flashCardViewSegue" id="Nnm-9e-w7r"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-gc-7TM">
@@ -149,7 +149,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Cards"/>
                                         <connections>
-                                            <segue destination="HCA-Em-CdF" kind="show" id="il9-wJ-Dh7"/>
+                                            <segue destination="HCA-Em-CdF" kind="show" identifier="cardsViewSegue" id="il9-wJ-Dh7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -283,7 +283,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <segue destination="une-Ke-dLU" kind="unwind" unwindAction="submitQuestionAction:" id="hhi-ft-spE"/>
+                                    <action selector="onSave:" destination="vZ6-yk-13M" eventType="touchUpInside" id="lHg-iF-nNO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -314,7 +314,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsT-cH-eeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="une-Ke-dLU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4810" y="649"/>
         </scene>

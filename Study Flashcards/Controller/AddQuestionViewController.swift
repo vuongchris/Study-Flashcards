@@ -15,7 +15,8 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var answerTextView: UITextView!
     
     var editStatus = false
-    
+    var cardBeingEdited: Card? = nil
+    var subject: Subject? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +30,26 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
         answerTextView.layer.cornerRadius = 5.0
         
     }
+    
+    @IBAction func onSave(_ sender: Any) {
+        if questionTextView != nil && answerTextView != nil {
+            if !editStatus {
+                subject!.cards.append(Card(question: questionTextView.text, answer: answerTextView.text))
+            }
+            else {
+                cardBeingEdited!.answer = answerTextView.text
+                cardBeingEdited!.question = questionTextView.text
+            }
+        }
+        editSubject(subject!)
+        goToCardView()
+    }
+    
+    @objc func goToCardView() {
+        let vc = storyboard?.instantiateViewController(identifier: "CardsViewController") as! CardsViewController
+        vc.cardList = subject!.cards
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 
 }

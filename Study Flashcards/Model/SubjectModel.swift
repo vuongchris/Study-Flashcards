@@ -7,10 +7,23 @@
 
 import Foundation
 
-struct Subject: Identifiable, Codable {
+class Subject: Identifiable, Codable {
     var id = UUID()
     var subjectName: String
     var cards: [Card]
+    
+    init(_ subjectName: String, _ cards: [Card]) {
+        self.subjectName = subjectName
+        self.cards = cards
+    }
+    
+    func addCard(question: String, answer: String) {
+        cards.append(Card(question: question, answer: answer))
+    }
+    
+    func removeCard(at: Int) {
+        cards.remove(at: at)
+    }
 }
 
 let SUBJECTS_KEY = "subjectKey"
@@ -52,10 +65,22 @@ func removeSubject(_ subjectName: String) {
 /// Edit subject name
 func editSubjectName(_ oldSubjectName: String, _ newSubjectName: String) {
     let defaults = UserDefaults.standard
-    var subjArray = readSubject()
+    let subjArray = readSubject()
     for (index,subject) in subjArray.enumerated() {
         if subject.subjectName == oldSubjectName {
             subjArray[index].subjectName = newSubjectName
+            break
+        }
+    }
+    defaults.set(try? PropertyListEncoder().encode(subjArray), forKey: SUBJECTS_KEY)
+}
+
+func editSubject(_ replaceSubject: Subject) {
+    let defaults = UserDefaults.standard
+    var subjArray = readSubject()
+    for (index,subject) in subjArray.enumerated() {
+        if subject.subjectName == replaceSubject.subjectName {
+            subjArray[index] = replaceSubject
             break
         }
     }

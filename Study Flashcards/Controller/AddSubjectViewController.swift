@@ -26,8 +26,8 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
         if subjectTextField.text != nil {
             if !editStatus {
                 writeSubject(Subject(
-                    subjectName: subjectTextField.text!,
-                    cards: []
+                    subjectTextField.text!,
+                    []
                 ))
             }
             else {

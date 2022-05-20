@@ -27,7 +27,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         super.viewDidLoad()
         // search title and search bar
         //title = "Search Subject"
-//        writeSubject(Subject(subjectName: "Physics", cards: [Card(question:"a", answer:"a")]))
+        //writeSubject(Subject("Physics", [Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a")]))
         subjectList = readSubject()
         
         tableView.delegate = self
@@ -83,7 +83,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-            vc.subjectTitle = subjectList[row].subjectName
+            vc.subject = subjectList[row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: false)
@@ -92,7 +92,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("DELET")
+            //print("DELET")
             let subjToBeDeleted: Int = indexPath.row
             removeSubject(subjectList[subjToBeDeleted].subjectName)
             subjectList.remove(at: subjToBeDeleted)
