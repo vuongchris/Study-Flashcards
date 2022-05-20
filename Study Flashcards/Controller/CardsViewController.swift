@@ -99,6 +99,11 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        cardsTableView.reloadData()
+    }
+    
     @IBAction func submitQuestionAction(_ sender: UIStoryboardSegue) {
         super.setEditing(false, animated: true)
         cardsTableView.setEditing(false, animated: true)

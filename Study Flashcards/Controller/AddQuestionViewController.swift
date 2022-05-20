@@ -29,9 +29,13 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
         answerTextView.layer.borderColor = borderColor.cgColor
         answerTextView.layer.cornerRadius = 5.0
         
+        if editStatus {
+            questionTextView.text = cardBeingEdited?.question
+            answerTextView.text = cardBeingEdited?.answer
+        }
     }
     
-    @IBAction func onSave(_ sender: Any) {
+    func onSave() {
         if questionTextView != nil && answerTextView != nil {
             if !editStatus {
                 subject!.cards.append(Card(question: questionTextView.text, answer: answerTextView.text))
@@ -42,14 +46,17 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
             }
         }
         editSubject(subject!)
-        goToCardView()
     }
     
-    @objc func goToCardView() {
-        let vc = storyboard?.instantiateViewController(identifier: "CardsViewController") as! CardsViewController
-        vc.cardList = subject!.cards
-        self.navigationController?.pushViewController(vc, animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /// Game View Segue
+        if segue.identifier == "cardsViewUnwind" {
+            let destinationView = segue.destination as! CardsViewController
+            onSave()
+            destinationView.subject = subject
+            destinationView.cardList = subject!.cards
+            
+        }
     }
-    
 
 }

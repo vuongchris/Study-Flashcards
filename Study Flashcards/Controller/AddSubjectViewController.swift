@@ -20,6 +20,9 @@ class AddSubjectViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.subjectTextField.delegate = self
+        
+        subjectTextField.text = subjectBeingEdited
+        
     }
     
     @IBAction func onSave(_ sender: Any) {
