@@ -23,6 +23,7 @@
 		16298AFA283120FA0079E24E /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AF9283120FA0079E24E /* CardModel.swift */; };
 		16298AFC283122AE0079E24E /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AFB283122AE0079E24E /* CardData.swift */; };
 		16298B0028312A840079E24E /* FlipAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16298AFF28312A840079E24E /* FlipAnimation.swift */; };
+		B8F7027128375ADD00563740 /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7027028375ADD00563740 /* SubjectModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		16298AF9283120FA0079E24E /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		16298AFB283122AE0079E24E /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		16298AFF28312A840079E24E /* FlipAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipAnimation.swift; sourceTree = "<group>"; };
+		B8F7027028375ADD00563740 /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				16298AFB283122AE0079E24E /* CardData.swift */,
 				16298AF9283120FA0079E24E /* CardModel.swift */,
+				B8F7027028375ADD00563740 /* SubjectModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F7027128375ADD00563740 /* SubjectModel.swift in Sources */,
 				16298B0028312A840079E24E /* FlipAnimation.swift in Sources */,
 				11609921283266BD00EE6666 /* MainViewController.swift in Sources */,
 				116099232832794300EE6666 /* CardsViewController.swift in Sources */,

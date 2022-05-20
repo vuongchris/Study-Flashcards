@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct Card: Identifiable{
+struct Card: Identifiable, Codable{
     var id = UUID()
-    var subject : String
+    //var subject : String
     var question : String
     var answer : String
-    
 }

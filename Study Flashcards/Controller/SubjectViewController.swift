@@ -20,13 +20,16 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     @IBOutlet weak var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: Results())
-    var subjectList = ["Biology", "Chemistry", "Physics"]
+    var subjectList: [Subject] = []
     let textCellIdentifier = "textCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // search title and search bar
         //title = "Search Subject"
+//        writeSubject(Subject(subjectName: "Physics", cards: [Card(question:"a", answer:"a")]))
+        subjectList = readSubject()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -59,7 +62,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = subjectList[row]
+        cell.textLabel?.text = subjectList[row].subjectName
         
         return cell
     }
@@ -78,7 +81,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-            vc.subjectTitle = subjectList[row]
+            vc.subjectTitle = subjectList[row].subjectName
             self.navigationController?.pushViewController(vc, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: false)
