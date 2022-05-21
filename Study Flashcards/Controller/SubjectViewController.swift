@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class Results: UIViewController{
     override func viewDidLoad(){
@@ -19,9 +20,15 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let searchController = UISearchController(searchResultsController: Results())
-    var subjectList = ["Biology", "Chemistry", "Physics"]
+    var subjects: [Subject]?
     let textCellIdentifier = "textCell"
+    
+    var editStatus = false
+    var submittedSubject: String?
+    var edittedSubject: Subject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +39,28 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
-        navigationItem.setHidesBackButton(true, animated: true)
-        navigationItem.rightBarButtonItem = editButtonItem
-        tableView.allowsSelectionDuringEditing = true
-
+        
+        fetchSubject()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAddSubjectView" {
+            let destVC = segue.destination as! AddSubjectViewController
+            destVC.context = context
+        }
+    }
+    
+    func fetchSubject() {
+        do {
+            self.subjects = try context.fetch(Subject.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            
+        }
+    }
+    
     // updates search after every character
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
@@ -52,48 +76,79 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectList.count
+        return self.subjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
-        let row = indexPath.row
-        cell.textLabel?.text = subjectList[row]
+        let subjectAtRow = self.subjects![indexPath.row]
+        
+        cell.textLabel?.text = subjectAtRow.subjectName
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        if tableView.isEditing  == true {
-            let vc = storyboard?.instantiateViewController(identifier: "AddSubjectViewController") as! AddSubjectViewController
-            
-            if tableView.isEditing == true {
-                vc.editStatus = true
-            } else {
-                vc.editStatus = false
-            }
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else {
-            let vc = storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-            vc.subjectTitle = subjectList[row]
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
         tableView.deselectRow(at: indexPath, animated: false)
-        
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: true)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            let subjectToRemove = self.subjects![indexPath.row]
+            
+            self.context.delete(subjectToRemove)
+            
+            do {
+                try self.context.save()
+            } catch {
+                
+            }
+            
+            self.fetchSubject()
+        }
         
-        tableView.setEditing(editing, animated: true)
-
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, completionHandler) in
+            let subjectToEdit = self.subjects![indexPath.row]
+            let destVC = self.storyboard?.instantiateViewController(identifier: "AddSubjectViewController") as! AddSubjectViewController
+            destVC.context = self.context
+            destVC.editStatus = true
+            destVC.text = subjectToEdit.subjectName
+            destVC.subjectToEdit = subjectToEdit
+            self.navigationController?.pushViewController(destVC, animated: true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
+    
+    
     
     @IBAction func submitAction(_ sender: UIStoryboardSegue) {
         super.setEditing(false, animated: true)
+        if editStatus {
+            edittedSubject!.subjectName = submittedSubject!
+            do {
+                try self.context.save()
+            } catch {
+                
+            }
+            
+            self.fetchSubject()
+        } else {
+            let newSubject = Subject(context: context)
+            newSubject.subjectName = submittedSubject
+            
+            do {
+                try self.context.save()
+            } catch {
+                
+            }
+            
+            self.fetchSubject()
+        }
+
+        
+        
         tableView.setEditing(false, animated: true)
     }
 }
