@@ -8,6 +8,7 @@
 import Foundation
 
 import UIKit
+import CoreData
 
 class CardsViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
@@ -15,8 +16,16 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
     @IBOutlet weak var cardsTableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: Results())
-    let subjectList = ["Card 1", "Card 2", "Card 3", "Card 4", "Card 5"]
     let textCellIdentifier = "textCell"
+    
+    var context: NSManagedObjectContext?
+    var subjectSelected: Subject?
+    var cardList: [Card]?
+    
+    var submittedQuestion: String?
+    var submittedAnswer: String?
+    var editStatus = false
+    var edittedCard: Card?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +36,31 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
         
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
-        navigationItem.rightBarButtonItem = editButtonItem
-
+        navigationItem.title = subjectSelected?.subjectName
+        fetchCards()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAddQuestionView" {
+            let destVC = segue.destination as! AddQuestionViewController
+            destVC.context = context
+            destVC.subjectSelected = subjectSelected
+        }
+    }
+    
+    func fetchCards() {
+        do {
+            let request = Card.fetchRequest()
+            //let subjectString = subjectSelected!.subjectName!
+            //let pred = NSPredicate(format: "subject = %@", subjectString)
+            //request.predicate = pred
+            self.cardList = try context!.fetch(request)
+            DispatchQueue.main.async {
+                self.cardsTableView.reloadData()
+            }
+        } catch {
+            
+        }
     }
     // updates search after every character
     func updateSearchResults(for searchController: UISearchController) {
@@ -45,35 +77,79 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectList.count
+        
+        return self.cardList?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cardsTableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
-        
-        let row = indexPath.row
-        cell.textLabel?.text = subjectList[row]
-        
+        let cardAtRow = self.cardList![indexPath.row]
+        cell.textLabel?.text = cardAtRow.question
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(identifier: "AddQuestionViewController") as! AddQuestionViewController
-        vc.editStatus = true
-        self.navigationController?.pushViewController(vc, animated: true)
         cardsTableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: true)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            let subjectToRemove = self.cardList![indexPath.row]
+            
+            self.context!.delete(subjectToRemove)
+            
+            do {
+                try self.context!.save()
+            } catch {
+                
+            }
+            
+            self.fetchCards()
+        }
         
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (action, view, completionHandler) in
+            let cardToEdit = self.cardList![indexPath.row]
+            let destVC = self.storyboard?.instantiateViewController(identifier: "AddQuestionViewController") as! AddQuestionViewController
+            destVC.context = self.context
+            destVC.subjectSelected = self.subjectSelected
+            destVC.editStatus = true
+            destVC.questionText = cardToEdit.question
+            destVC.answerText = cardToEdit.answer
+            destVC.cardToEdit = cardToEdit
+            self.navigationController?.pushViewController(destVC, animated: true)
+        }
         
-        cardsTableView.setEditing(editing, animated: true)
-
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     
     @IBAction func submitQuestionAction(_ sender: UIStoryboardSegue) {
         super.setEditing(false, animated: true)
+        if editStatus {
+            edittedCard!.question = submittedQuestion!
+            edittedCard!.answer = submittedAnswer!
+            
+            do {
+                try self.context!.save()
+            } catch {
+                
+            }
+            
+            self.fetchCards()
+        } else {
+            let newCard = Card(context: context!)
+            newCard.question = submittedQuestion
+            newCard.answer = submittedAnswer
+            
+            subjectSelected?.addToCards(newCard)
+            
+            do {
+                try self.context!.save()
+            } catch {
+                
+            }
+            
+            self.fetchCards()
+        }
         cardsTableView.setEditing(false, animated: true)
     }
     

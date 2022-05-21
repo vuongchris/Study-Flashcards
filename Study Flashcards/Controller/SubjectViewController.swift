@@ -90,6 +90,11 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let subjectSelected = self.subjects![indexPath.row]
+        let destVC = self.storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
+        destVC.context = context
+        destVC.subjectSelected = subjectSelected
+        self.navigationController?.pushViewController(destVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
     }
     

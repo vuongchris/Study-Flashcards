@@ -150,7 +150,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Cards"/>
                                         <connections>
-                                            <segue destination="HCA-Em-CdF" kind="show" id="il9-wJ-Dh7"/>
+                                            <segue destination="HCA-Em-CdF" kind="show" identifier="goToCardView" id="il9-wJ-Dh7"/>
                                         </connections>
                                     </button>
                                 </subviews>
