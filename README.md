@@ -7,14 +7,15 @@ they can:
 - flip to see question on one side
 - see the answer on the other side
 - edit the card
-- delet the card
+- delete the card
 - add a new card to collection
 - add a new collection (subject)
 
+GitHub Link: https://github.com/vuongchris/Study-Flashcards
 
-Briana Margetts 14057400
-Christopher Vuong 13568530
-Ronan Konstantin 13717119
+Contributors
+- Briana Margetts 14057400
+- Christopher Vuong 13568530
+- Ronan Konstantin 13717119
 
-*** add other names
 
