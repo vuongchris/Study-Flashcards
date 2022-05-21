@@ -15,7 +15,8 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var answerTextView: UITextView!
     
     var editStatus = false
-    
+    var cardBeingEdited: Card? = nil
+    var subject: Subject? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,31 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
         answerTextView.layer.borderColor = borderColor.cgColor
         answerTextView.layer.cornerRadius = 5.0
         
+        if editStatus {
+            questionTextView.text = cardBeingEdited?.question
+            answerTextView.text = cardBeingEdited?.answer
+        }
+    }
+    
+    @IBAction func onSave() {
+        if questionTextView != nil && answerTextView != nil {
+            if !editStatus {
+                subject!.cards.append(Card(question: questionTextView.text, answer: answerTextView.text))
+            }
+            else {
+                cardBeingEdited!.answer = answerTextView.text
+                cardBeingEdited!.question = questionTextView.text
+            }
+        }
+        editSubject(subject!)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cardsViewUnwind" {
+            let destinationView = segue.destination as! CardsViewController
+            destinationView.subject = subject
+            destinationView.cardList = subject!.cards
+        }
     }
 
 }

@@ -20,13 +20,16 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     @IBOutlet weak var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: Results())
-    var subjectList = ["Biology", "Chemistry", "Physics"]
+    var subjectList: [Subject] = []
     let textCellIdentifier = "textCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // search title and search bar
         //title = "Search Subject"
+        //writeSubject(Subject("Physics", [Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a")]))
+        subjectList = readSubject()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -59,11 +62,12 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = subjectList[row]
+        cell.textLabel?.text = subjectList[row].subjectName
         
         return cell
     }
     
+    /// On selection
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         if tableView.isEditing  == true {
@@ -74,15 +78,26 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
             } else {
                 vc.editStatus = false
             }
+            vc.subjectBeingEdited = subjectList[row].subjectName
             
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = storyboard?.instantiateViewController(identifier: "MainViewController") as! MainViewController
-            vc.subjectTitle = subjectList[row]
+            vc.subject = subjectList[row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: false)
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //print("DELET")
+            let subjToBeDeleted: Int = indexPath.row
+            removeSubject(subjectList[subjToBeDeleted].subjectName)
+            subjectList.remove(at: subjToBeDeleted)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -94,6 +109,7 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
     
     @IBAction func submitAction(_ sender: UIStoryboardSegue) {
         super.setEditing(false, animated: true)
+        tableView.reloadData()
         tableView.setEditing(false, animated: true)
     }
 }

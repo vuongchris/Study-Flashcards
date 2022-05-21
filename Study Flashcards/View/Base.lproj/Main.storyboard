@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EmY-xu-3Ic">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -94,7 +93,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <segue destination="fy9-Sl-0oj" kind="unwind" unwindAction="submitAction:" id="QXk-pX-rcg"/>
+                                    <action selector="onSave:" destination="whZ-EA-QMU" eventType="touchUpInside" id="pWY-a8-ERA"/>
+                                    <segue destination="wBR-Nm-gSU" kind="unwind" identifier="subjectsViewUnwind" unwindAction="submitAction:" id="zhT-I7-Vol"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -116,8 +116,8 @@
                         <outlet property="subjectTextField" destination="9hU-LZ-AkE" id="ZVM-qp-4bN"/>
                     </connections>
                 </viewController>
-                <exit id="fy9-Sl-0oj" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JF9-GT-eLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wBR-Nm-gSU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3268" y="314"/>
         </scene>
@@ -140,7 +140,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Quiz"/>
                                         <connections>
-                                            <segue destination="3c0-RG-b0C" kind="show" id="Nnm-9e-w7r"/>
+                                            <action selector="startQuiz:" destination="BP7-vO-8Is" eventType="touchUpInside" id="eD2-h1-g2i"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-gc-7TM">
@@ -151,7 +151,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Cards"/>
                                         <connections>
-                                            <segue destination="HCA-Em-CdF" kind="show" id="il9-wJ-Dh7"/>
+                                            <segue destination="HCA-Em-CdF" kind="show" identifier="cardsViewSegue" id="il9-wJ-Dh7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -285,7 +285,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <segue destination="une-Ke-dLU" kind="unwind" unwindAction="submitQuestionAction:" id="hhi-ft-spE"/>
+                                    <action selector="onSave" destination="vZ6-yk-13M" eventType="touchUpInside" id="8ob-Mt-gyF"/>
+                                    <segue destination="68D-C8-fdV" kind="unwind" identifier="cardsViewUnwind" unwindAction="submitQuestionAction:" id="7p5-hV-Q8j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -316,7 +317,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JsT-cH-eeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="une-Ke-dLU" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="68D-C8-fdV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4810" y="649"/>
         </scene>

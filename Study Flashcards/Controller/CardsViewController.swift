@@ -11,17 +11,21 @@ import UIKit
 
 class CardsViewController: UIViewController, UISearchResultsUpdating, UITableViewDataSource, UITableViewDelegate {
     
+    let ADD_QUESTION_SEGUE = "goToAddQuestionView"
     
     @IBOutlet weak var cardsTableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: Results())
-    let subjectList = ["Card 1", "Card 2", "Card 3", "Card 4", "Card 5"]
+    var subject: Subject?
+    var cardList: [Card] = []
     let textCellIdentifier = "textCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // search title and search bar
-        //title = "Search Subject"
+        if subject != nil {
+            cardList = subject!.cards
+        }
         cardsTableView.delegate = self
         cardsTableView.dataSource = self
         
@@ -45,14 +49,14 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectList.count
+        return cardList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cardsTableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = subjectList[row]
+        cell.textLabel?.text = cardList[row].question
         
         return cell
     }
@@ -60,6 +64,8 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "AddQuestionViewController") as! AddQuestionViewController
         vc.editStatus = true
+        vc.cardBeingEdited = cardList[indexPath.row]
+        vc.subject = subject
         self.navigationController?.pushViewController(vc, animated: true)
         cardsTableView.deselectRow(at: indexPath, animated: true)
     }
@@ -72,8 +78,31 @@ class CardsViewController: UIViewController, UISearchResultsUpdating, UITableVie
 
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //print("DELET")
+            guard subject != nil else {return}
+            let cardToBeDeleted: Int = indexPath.row
+            subject!.removeCard(at: cardToBeDeleted)
+            cardList.remove(at: cardToBeDeleted)
+            editSubject(subject!)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /// Game View Segue
+        if segue.identifier == ADD_QUESTION_SEGUE {
+            let destinationView = segue.destination as! AddQuestionViewController
+            destinationView.subject = subject
+            
+        }
+    }
+    
+    
     @IBAction func submitQuestionAction(_ sender: UIStoryboardSegue) {
         super.setEditing(false, animated: true)
+        cardsTableView.reloadData()
         cardsTableView.setEditing(false, animated: true)
     }
     

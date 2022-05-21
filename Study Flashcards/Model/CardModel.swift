@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct Card: Identifiable{
+class Card: Identifiable, Codable{
     var id = UUID()
-    var subject : String
+    //var subject : String
     var question : String
     var answer : String
     
+    init(question: String, answer: String) {
+        self.question = question
+        self.answer = answer
+    }
 }
