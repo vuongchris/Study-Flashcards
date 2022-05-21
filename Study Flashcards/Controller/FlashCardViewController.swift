@@ -12,11 +12,15 @@ import UIKit
 import SwiftUI
 
 struct ContentView: View {
+    
+    var cardList: Set<Card>?
+    var number = 0
+    
     var body: some View {
         Flashcard(front: {
-            Text("Front")
+            Text(cardList![cardList!.index(cardList!.startIndex, offsetBy: 1)].question!)
         }, back: {
-            Text("Back")
+            Text(cardList![cardList!.index(cardList!.startIndex, offsetBy: 1)].answer!)
         })
         
         Button("Previous") {}

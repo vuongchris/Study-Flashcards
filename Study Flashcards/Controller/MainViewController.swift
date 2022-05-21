@@ -25,7 +25,11 @@ class MainViewController: UIViewController {
             let destVC = segue.destination as! CardsViewController
             destVC.context = context
             destVC.subjectSelected = subjectSelected
+        } else if segue.identifier == "goToFlashCardView" {
+            let destVC = segue.destination as! FlashCardViewController
+            let cardList = subjectSelected!.cards as! Set<Card>
+            destVC.rootView.cardList = cardList
         }
     }
-        
+    
 }

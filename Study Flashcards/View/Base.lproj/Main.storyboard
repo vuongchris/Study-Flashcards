@@ -139,7 +139,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Start Quiz"/>
                                         <connections>
-                                            <segue destination="3c0-RG-b0C" kind="show" id="Nnm-9e-w7r"/>
+                                            <segue destination="3c0-RG-b0C" kind="show" identifier="goToFlashCardView" id="Nnm-9e-w7r"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXv-gc-7TM">

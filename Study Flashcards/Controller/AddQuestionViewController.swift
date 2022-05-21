@@ -47,8 +47,8 @@ class AddQuestionViewController: UIViewController, UITextFieldDelegate {
         destVC.context = context
         destVC.subjectSelected = subjectSelected
         destVC.editStatus = editStatus
-        destVC.submittedQuestion = questionText
-        destVC.submittedAnswer = answerText
+        destVC.submittedQuestion = questionTextView.text
+        destVC.submittedAnswer = answerTextView.text
         destVC.edittedCard = cardToEdit
     }
     
