@@ -11,43 +11,87 @@ import Foundation
 import UIKit
 import SwiftUI
 
+class FlashCardData: ObservableObject {
+    @Published var cardIndex: Int = 0
+    var flipped: Bool = false
+}
+
 struct ContentView: View {
+    let subject: Subject
+    let cardList: [Card]
+    
+    @State private var question: String
+    @State private var answer: String
+    @ObservedObject var data: FlashCardData = FlashCardData()
+    
+    init(subject: Subject) {
+        self.subject = subject
+        self.cardList = subject.cards
+        if cardList.isEmpty {
+            self.question = "Please add a card for this subject"
+            self.answer = "Please add a card for this subject"
+        }
+        else {
+            self.question = cardList[0].question
+            self.answer = cardList[0].answer
+        }
+    }
+    
     var body: some View {
         Flashcard(front: {
-            Text("Front")
+            Text(question)
         }, back: {
-            Text("Back")
-        })
+            Text(answer)
+        },
+            flipped: self.$data.flipped
+        )
         
-        Button("Previous") {}
+        Button(action: {
+            if self.data.cardIndex > 0 {
+                self.data.cardIndex -= 1
+                updateQuestion()
+            }
+        }) {
+            Text("Previous")
+        }
             .buttonStyle(.borderedProminent)
             .font(.title2)
             .padding()
         
-        Button("Next") {}
+        Button(action: {
+            if self.data.cardIndex + 1 < cardList.count {
+                self.data.cardIndex += 1
+                updateQuestion()
+            }
+        }) {
+            Text("Next")
+        }
             .buttonStyle(.borderedProminent)
             .font(.title2)
             .padding()
-
-        
-
-        
-}
+    }
+    
+    func updateQuestion() {
+        data.flipped = false
+        question = cardList[data.cardIndex].question
+        answer = cardList[data.cardIndex].answer
+    }
 }
 
 struct Flashcard<Front, Back>: View where Front: View, Back: View {
     var front: () -> Front
     var back: () -> Back
     
-    @State var flipped: Bool = false
+    @Binding var flipped: Bool
     
     @State var flashcardRotation = 0.0
     @State var contentRotation = 0.0
     
-    init(@ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
-        self.front = front
-        self.back = back
-    }
+//    init(@ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back, _ frontside: Bool) {
+//        self.front = front
+//        self.back = back
+//        self.frontside = frontside
+//    }
     
     var body: some View {
         ZStack {
@@ -83,17 +127,19 @@ struct Flashcard<Front, Back>: View where Front: View, Back: View {
                    contentRotation += 180
                    flipped.toggle()
                }
-           }
-       }
-
-class FlashCardViewController: UIHostingController<ContentView> {
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder,rootView: ContentView());
+        
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
 }
+
+//class FlashCardViewController: UIHostingController<ContentView> {
+//
+//    required init?(coder: NSCoder) {
+//
+//        super.init(coder: coder,rootView: ContentView(subject: Subject("a", [Card(question:"a",answer:"a")])));
+//    }
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
+//
+//}
