@@ -10,6 +10,7 @@
 		113FD34C2834DF97004E10A0 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113FD34B2834DF97004E10A0 /* AddQuestionViewController.swift */; };
 		11609921283266BD00EE6666 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11609920283266BD00EE6666 /* MainViewController.swift */; };
 		116099232832794300EE6666 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116099222832794300EE6666 /* CardsViewController.swift */; };
+		11922B97283A4F6D00367D75 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11922B96283A4F6D00367D75 /* CardData.swift */; };
 		1194D60F28365B1200B6E177 /* FlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194D60E28365B1200B6E177 /* FlashCardViewController.swift */; };
 		11D3A1BC2833CC26008C9806 /* AddSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */; };
 		11F8BE872828CB700091052A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BE862828CB700091052A /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		113FD34B2834DF97004E10A0 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		11609920283266BD00EE6666 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		116099222832794300EE6666 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		11922B96283A4F6D00367D75 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		1194D60E28365B1200B6E177 /* FlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardViewController.swift; sourceTree = "<group>"; };
 		11D3A1BB2833CC26008C9806 /* AddSubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectViewController.swift; sourceTree = "<group>"; };
 		11F8BE832828CB700091052A /* Study Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Flashcards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 			children = (
 				16298AF9283120FA0079E24E /* CardModel.swift */,
 				B8F7027028375ADD00563740 /* SubjectModel.swift */,
+				11922B96283A4F6D00367D75 /* CardData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				11F8BE872828CB700091052A /* AppDelegate.swift in Sources */,
 				1194D60F28365B1200B6E177 /* FlashCardViewController.swift in Sources */,
 				11F8BE892828CB700091052A /* SceneDelegate.swift in Sources */,
+				11922B97283A4F6D00367D75 /* CardData.swift in Sources */,
 				16298AF8283117100079E24E /* Card.xcdatamodeld in Sources */,
 				16298AFA283120FA0079E24E /* CardModel.swift in Sources */,
 			);
