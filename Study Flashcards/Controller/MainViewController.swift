@@ -12,8 +12,6 @@ import SwiftUI
 
 class MainViewController: UIViewController {
     
-    
-    //let FLASH_CARD_VIEW_SEGUE = "flashCardViewSegue"
     let CARDS_VIEW_SEGUE = "cardsViewSegue"
     
     var subject: Subject? = nil
@@ -40,11 +38,6 @@ class MainViewController: UIViewController {
             let destinationView = segue.destination as! CardsViewController
             destinationView.subject = subject
         }
-//        else if segue.identifier == FLASH_CARD_VIEW_SEGUE {
-//            let view = ContentView(subject: subject!)
-//            let host = UIHostingController(rootView: view)
-//            navigationController?.pushViewController(host, animated: true)
-//        }
     }
         
 }

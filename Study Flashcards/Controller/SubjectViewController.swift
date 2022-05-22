@@ -27,7 +27,6 @@ class SubjectViewController: UIViewController, UISearchResultsUpdating, UITableV
         super.viewDidLoad()
         // search title and search bar
         //title = "Search Subject"
-        //writeSubject(Subject("Physics", [Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a"),Card(question:"a", answer:"a")]))
         subjectList = readSubject()
         
         tableView.delegate = self

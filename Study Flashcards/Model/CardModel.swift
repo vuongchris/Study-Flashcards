@@ -9,7 +9,6 @@ import Foundation
 
 class Card: Identifiable, Codable{
     var id = UUID()
-    //var subject : String
     var question : String
     var answer : String
     

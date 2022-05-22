@@ -93,13 +93,7 @@ struct Flashcard<Front, Back>: View where Front: View, Back: View {
     
     @State var flashcardRotation = 0.0
     @State var contentRotation = 0.0
-    
-//    init(@ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back, _ frontside: Bool) {
-//        self.front = front
-//        self.back = back
-//        self.frontside = frontside
-//    }
-    
+        
     var body: some View {
         ZStack {
             if flipped {
@@ -138,16 +132,3 @@ struct Flashcard<Front, Back>: View where Front: View, Back: View {
         
     }
 }
-
-//class FlashCardViewController: UIHostingController<ContentView> {
-//
-//    required init?(coder: NSCoder) {
-//
-//        super.init(coder: coder,rootView: ContentView(subject: Subject("a", [Card(question:"a",answer:"a")])));
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//
-//}
