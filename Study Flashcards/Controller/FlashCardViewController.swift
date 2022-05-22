@@ -45,30 +45,37 @@ struct ContentView: View {
         },
             flipped: self.$data.flipped
         )
-        
-        Button(action: {
-            if self.data.cardIndex > 0 {
-                self.data.cardIndex -= 1
-                updateQuestion()
+        HStack (spacing: 20) {
+            Button(action: {
+                if self.data.cardIndex > 0 {
+                    self.data.cardIndex -= 1
+                    updateQuestion()
+                }
+            }) {
+                Text("Previous")
             }
-        }) {
-            Text("Previous")
-        }
-            .buttonStyle(.borderedProminent)
-            .font(.title2)
-            .padding()
-        
-        Button(action: {
-            if self.data.cardIndex + 1 < cardList.count {
-                self.data.cardIndex += 1
-                updateQuestion()
+                .buttonStyle(PlainButtonStyle())
+                .frame(width: 150, height: 50)
+                .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                .foregroundColor(Color.white)
+                .font(.title2)
+                .padding()
+            
+            Button(action: {
+                if self.data.cardIndex + 1 < cardList.count {
+                    self.data.cardIndex += 1
+                    updateQuestion()
+                }
+            }) {
+                Text("Next")
             }
-        }) {
-            Text("Next")
+                .buttonStyle(PlainButtonStyle())
+                .frame(width: 150, height: 50)
+                .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
+                .foregroundColor(Color.white)
+                .font(.title2)
+                .padding()
         }
-            .buttonStyle(.borderedProminent)
-            .font(.title2)
-            .padding()
     }
     
     func updateQuestion() {
@@ -106,6 +113,7 @@ struct Flashcard<Front, Back>: View where Front: View, Back: View {
         .frame(height: 200)
         .frame(maxWidth: .infinity)
         .background(Color.white)
+        .foregroundColor(Color.black)
         .overlay(
             Rectangle()
                 .stroke(Color.black, lineWidth: 2)
