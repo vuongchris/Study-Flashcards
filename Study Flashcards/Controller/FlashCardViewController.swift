@@ -46,35 +46,43 @@ struct ContentView: View {
             flipped: self.$data.flipped
         )
         HStack (spacing: 20) {
-            Button(action: {
-                if self.data.cardIndex > 0 {
-                    self.data.cardIndex -= 1
-                    updateQuestion()
+            if #available(iOS 14.0, *) {
+                Button(action: {
+                    if self.data.cardIndex > 0 {
+                        self.data.cardIndex -= 1
+                        updateQuestion()
+                    }
+                }) {
+                    Text("Previous")
                 }
-            }) {
-                Text("Previous")
-            }
                 .buttonStyle(PlainButtonStyle())
                 .frame(width: 150, height: 50)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
                 .foregroundColor(Color.white)
                 .font(.title2)
                 .padding()
+            } else {
+                // Fallback on earlier versions
+            }
             
-            Button(action: {
-                if self.data.cardIndex + 1 < cardList.count {
-                    self.data.cardIndex += 1
-                    updateQuestion()
+            if #available(iOS 14.0, *) {
+                Button(action: {
+                    if self.data.cardIndex + 1 < cardList.count {
+                        self.data.cardIndex += 1
+                        updateQuestion()
+                    }
+                }) {
+                    Text("Next")
                 }
-            }) {
-                Text("Next")
-            }
                 .buttonStyle(PlainButtonStyle())
                 .frame(width: 150, height: 50)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.blue))
                 .foregroundColor(Color.white)
                 .font(.title2)
                 .padding()
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     
